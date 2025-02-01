@@ -11,6 +11,7 @@ import numpy as np
 import numpy as np
 from tqdm import tqdm
 
+#transformations for data augmentation
 transform = transforms.Compose([
                             transforms.Resize((256, 256)),
                             transforms.RandomVerticalFlip(p=0.5),  # Flips vertically with a probability of 50%
@@ -46,7 +47,9 @@ class CustomImageDataset(Dataset):
         # Since there are no classes, we can return a dummy label (e.g., 0)
         return image, 0
 
-def create_dataset(img_dir='/home1/eswara_e/VAE/img_align_celeba',batch_size=64):
+def create_dataset(img_dir='data/img_align_celeba',batch_size=64):
+    #img_dir --> path to the dataset directory 
+    #batch_size ----> images per batch
     
     dataset = CustomImageDataset(root_dir=img_dir, transform=transform)
     #test_dataset = CustomImageDataset(root_dir='stanford_cars/cars_test', transform=transform)
