@@ -104,4 +104,4 @@ def train(model, data, accumulation_steps=1, continue_training=False, checkpoint
             torch.save(checkpoints, checkpoint_path)
             print(f'Model saved with best train loss: {best_loss:.4f}')
 
-  train(model, val_loader, accumulation_steps=1, continue_training=False, checkpoint_path='models/ldm_model_checkpoint_latent128.pth')
+  train(model, train_loader, accumulation_steps=1, continue_training=False, checkpoint_path='models/ldm_model_checkpoint_latent128.pth')
